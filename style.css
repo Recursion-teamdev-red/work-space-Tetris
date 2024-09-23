@@ -1,0 +1,91 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+canvas {
+  border: 1px solid #dbdbdb;
+  background-color: #dbdbdb;
+}
+
+.status-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 要素間を均等に分ける */
+  align-items: center;
+  gap: 40px; /* 要素間のスペースを20pxに設定 */
+  padding: 20px;
+}
+
+.score {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.start-button {
+  padding: 10px 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.game {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 20px;
+}
+#tetris {
+  margin-right: 20px;
+}
+#next-piece {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#next {
+  border: 1px solid #dbdbdb;
+  background-color: #dbdbdb;
+}
+
+.tetris-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+#score {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.game-over {
+  display: none;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 4rem;
+  flex-direction: column;
+}
+
+.game-over button {
+  font-size: 2rem;
+  background-color: white;
+  border: 1px solid black;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  margin-top: 1em;
+}
+
+.game-over button:hover {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
