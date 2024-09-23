@@ -35,7 +35,7 @@
 1. リポジトリをクローンします。
 
     ```bash
-    git clone https://github.com/your-username/tetris.git
+    git clone [https://github.com/your-username/tetris.git](https://github.com/Recursion-teamdev-red/work-space-Tetris)
     ```
 
 2. 必要な依存関係はありませんので、`index.html`をブラウザで開くだけで動作します。
