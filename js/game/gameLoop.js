@@ -17,14 +17,22 @@ export function update(time = 0) {
   state.dropCounter += deltaTime;
 
   // 一定時間が経過したらピースを落下させる
-
+  if(state.dropCounter > DROP_INTERVAL){
+    playerDrop();
+  }
   // ゲームオーバーでなく、一時停止中でもない場合、ゲームを描画し次のフレームをリクエスト
+  if(!state.gameOver && !state.paused){
+    draw(arena, player);
+    state.animationFrameId = requestAnimationFrame(update);
+  }
 }
 
 /**
  * プレイヤーのピースを1マス落下させる関数
  */
-export function playerDrop() {}
+export function playerDrop() {
+  player.pos.y++;
+}
 
 /**
  * プレイヤーのピースをアリーナに固定する関数
