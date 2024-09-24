@@ -14,8 +14,12 @@ import { gameOverHandler } from './gameOver.js';
  */
 export function initializeGame() {
   // キャンバスのスケールを設定
+  UI.context.scale(SCALE, SCALE);
+  UI.nextContext.scale(SCALE, SCALE);
   // プレイヤーを初期化
+  initializePlayer();
   // ゲーム開始時のスコアを更新
+  updateScore();
 }
 
 /**
@@ -28,12 +32,16 @@ export function initializePlayer() {
   const pieces = 'ILJOTSZ'; // 利用可能なピースの種類を定義
 
   // 現在のピースを設定（次のピースがあればそれを使用、なければ新しく生成）
-
+  player.matrix = player.next || createPiece(pieces[(Math.random() * pieces.length) | 0]);
   // 次のピースを生成
-
+  player.next = createPiece(pieces[(Math.random() * pieces.length) | 0]);
   // プレイヤーの位置を初期化（アリーナの中央に配置）
-
+  player.pos.y = 0;
+  player.pos.x = ((arena[0].length) / 2 | 0) - ((player.matrix[0].length / 2) | 0);
   // 衝突判定を行い、衝突する場合はゲームオーバー処理を実行
+  if(collide(arena, player)) {
+    gameOverHandler();
+  }
 }
 
 /**
