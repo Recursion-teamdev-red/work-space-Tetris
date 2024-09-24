@@ -17,8 +17,13 @@ export function setupEventListeners() {
     if (state.gameOver) UI.resetButton.click();
 
     // ポーズ状態の切り替え
-    // ゲームを再開
-    // ゲームループを停止
+    if (state.paused) {
+      state.paused = false;
+      update(); // ゲームを再開
+    } else {
+      state.paused = true;
+      cancelAnimationFrame(state.animationFrameId); // ゲームループを停止
+    }
   });
 
   // リセットボタンのクリックイベント
