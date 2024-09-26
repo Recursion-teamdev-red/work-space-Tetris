@@ -11,6 +11,7 @@
 export function collide(arena, player) {
   // プレイヤーのピースとその位置を取得
   const [playerMatrix, playerPosition] = [player.matrix, player.pos];
+
   // プレイヤーのピースの各セルについて衝突チェックを行う
   return playerMatrix.some((row, y) =>
     row.some(
