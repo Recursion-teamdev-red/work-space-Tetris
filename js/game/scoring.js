@@ -14,10 +14,23 @@ export function arenaSweep(arena, state) {
   // アリーナの下から上に向かってチェック
   outer: for (let y = arena.length - 1; y > 0; --y) {
     // 各行の全てのセルをチェック
+    for (let x = 0; x < arena[y].length; ++x) {
+      // 空のセルがあれば、その行はスキップ
+      if (arena[y][x] === 0) {
+        continue outer;
+      }
+    }
+
     // 行が全て埋まっている場合の処理
     // その行を取り除き、新しい空の行を上に追加
+    const row = arena.splice(y, 1)[0].fill(0);
+    arena.unshift(row);
+
     // スコアの計算と加算
     // 消去した行数に応じてスコアが増加
+    state.score += rowCount * 10;
+
     // 次の行を消去した場合のスコア倍率を2倍に
+    rowCount *= 2;
   }
 }
