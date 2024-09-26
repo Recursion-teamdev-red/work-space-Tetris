@@ -41,9 +41,21 @@ export function setupEventListeners() {
   document.addEventListener('keydown', (event) => {
     if (!state.paused) {
       // 左矢印キー：左に移動
+      if (event.key === 'ArrowLeft') {
+        playerMove(arena, player, -1);
+      }
       // 右矢印キー：右に移動
+      else if (event.key === 'ArrowRight') {
+        playerMove(arena, player, 1);
+      }
       // 下矢印キー：高速落下
+      else if (event.key === 'ArrowDown') {
+        playerDrop();
+      }
       // 上矢印キー：回転
+      else if (event.key === 'ArrowUp') {
+        playerRotate(arena, player);
+      }
     }
   });
 }
