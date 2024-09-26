@@ -32,6 +32,16 @@ export function update(time = 0) {
  */
 export function playerDrop() {
   player.pos.y++;
+  // 衝突が発生した場合の処理
+  if (collide(arena, player)) {
+    console.log('衝突発生！これ以上ピースを落下できません。');
+    player.pos.y--; // 衝突が発生した場合は元の位置に戻す
+    merge(arena, player);
+    initializePlayer();
+    // arenaSweep(arena, state);
+    updateScore();
+  }
+  state.dropCounter = 0;
 }
 
 /**
@@ -39,4 +49,17 @@ export function playerDrop() {
  * @param {number[][]} arena - ゲームフィールドを表す2次元配列
  * @param {Object} player - プレイヤーオブジェクト
  */
-function merge(arena, player) {}
+function merge(arena, player) {
+  // プレイヤーのピースの各行をループ
+  player.matrix.forEach((row, y) => {
+    // 各行のセルをループ
+    row.forEach((value, x) => {
+      if (value !== 0) {
+        // アリーナの対応する位置にピースの値を固定
+        // y + player.pos.y: ピースのY座標に基づくアリーナの行
+        // x + player.pos.x: ピースのX座標に基づくアリーナの列
+        arena[y + player.pos.y][x + player.pos.x] = value;
+      }
+    });
+  });
+}
