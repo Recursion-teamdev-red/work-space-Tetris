@@ -7,6 +7,8 @@ import { update, playerDrop } from './game/gameLoop.js';
 import { initializePlayer, updateScore } from './game/initialization.js';
 import { updateGameOverScore } from './game/gameOver.js';
 import { drawMatrix } from './ui/draw.js';
+import { updateLevel } from './game/level.js';
+import { INITIAL_DROP_INTERVAL } from './config/constants.js';
 
 /**
  * イベントリスナーを設定します。
@@ -32,6 +34,7 @@ export function setupEventListeners() {
   UI.resetButton.addEventListener('click', () => {
     state.gameOver = false;
     state.score = 0;
+    state.level = 1;
     // アリーナをクリア
     drawMatrix(arena, { x: 0, y: 0 }, UI.context);
     // プレイヤーを初期化
@@ -39,8 +42,12 @@ export function setupEventListeners() {
     // スコアを更新
     updateScore();
     updateGameOverScore();
+    // レベルをリセット
+    updateLevel(state);
+    // 落下速度を初期値にリセット
+    state.dropInterval = INITIAL_DROP_INTERVAL;
     // ゲームオーバー表示を非表示
-    UI.gameOverElement.style.display = "none";
+    UI.gameOverElement.style.display = 'none';
     // ゲームを再開
     update();
   });

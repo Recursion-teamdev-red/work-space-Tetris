@@ -1,3 +1,5 @@
+import { checkLevelUp } from './level.js';
+
 /**
  * アリーナ（ゲームフィールド）の行を消去し、スコアを更新します。
  * アリーナの下から上に向かって行をチェックし、
@@ -33,4 +35,7 @@ export function arenaSweep(arena, state) {
     // 次の行を消去した場合のスコア倍率を2倍に
     rowCount *= 2;
   }
+
+  // スコアが更新された後にレベルアップのチェックを行う
+  checkLevelUp(state);
 }

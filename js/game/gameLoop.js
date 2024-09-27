@@ -1,7 +1,7 @@
 import { state } from '../core/gameState.js';
 import { player } from '../core/player.js';
 import { arena } from '../core/arena.js';
-import { DROP_INTERVAL } from '../config/constants.js';
+// import { DROP_INTERVAL } from '../config/constants.js';
 import { collide } from './collision.js';
 import { arenaSweep } from './scoring.js';
 import { draw } from '../ui/draw.js';
@@ -17,7 +17,7 @@ export function update(time = 0) {
   state.dropCounter += deltaTime;
 
   // 一定時間が経過したらピースを落下させる
-  if (state.dropCounter > DROP_INTERVAL) {
+  if (state.dropCounter > state.dropInterval) {
     playerDrop();
   }
   // ゲームオーバーでなく、一時停止中でもない場合、ゲームを描画し次のフレームをリクエスト

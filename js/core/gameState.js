@@ -1,3 +1,5 @@
+import { INITIAL_DROP_INTERVAL } from '../config/constants.js';
+
 /**
  * ゲームの状態を表すオブジェクト
  * @typedef {Object} GameState
@@ -16,7 +18,9 @@
  */
 export const state = {
   score: 0, // プレイヤーの初期スコア
+  level: 1, // 初期レベルを設定
   dropCounter: 0, // ピース落下タイミング制御用カウンター
+  dropInterval: INITIAL_DROP_INTERVAL, // 初期の落下速度の間隔は1000ms（1秒）
   lastTime: 0, // 前回のゲームループ更新時刻
   gameOver: false, // ゲームオーバー状態（初期状態はfalse）
   paused: true, // ゲーム一時停止状態（初期状態はtrue）
