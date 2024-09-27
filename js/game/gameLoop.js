@@ -38,7 +38,7 @@ export function playerDrop() {
     player.pos.y--; // 衝突が発生した場合は元の位置に戻す
     merge(arena, player);
     initializePlayer();
-    // arenaSweep(arena, state);
+    arenaSweep(arena, state);
     updateScore();
   }
   state.dropCounter = 0;
