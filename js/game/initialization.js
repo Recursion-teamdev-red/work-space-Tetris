@@ -6,6 +6,7 @@ import { SCALE } from '../config/constants.js';
 import { createPiece } from '../utils/piece.js';
 import { collide } from './collision.js';
 import { gameOverHandler } from './gameOver.js';
+import { updateLevel } from './level.js';
 
 /**
  * ゲームを初期化します。
@@ -19,7 +20,11 @@ export function initializeGame() {
   // プレイヤーを初期化
   initializePlayer();
   // ゲーム開始時のスコアを更新
+  // スコアをリセット
   updateScore();
+
+  // レベルをリセット
+  updateLevel(state);
 }
 
 /**
@@ -37,11 +42,9 @@ export function initializePlayer() {
   player.next = createPiece(pieces[(Math.random() * pieces.length) | 0]);
   // プレイヤーの位置を初期化（アリーナの中央に配置）
   player.pos.y = 0;
-  player.pos.x = ((arena[0].length) / 2 | 0) - ((player.matrix[0].length / 2) | 0);
+  player.pos.x = ((arena[0].length / 2) | 0) - ((player.matrix[0].length / 2) | 0);
   // 衝突判定を行い、衝突する場合はゲームオーバー処理を実行
-  if(collide(arena, player)) {
-    gameOverHandler();
-  }
+  if (collide(arena, player)) gameOverHandler();
 }
 
 /**
