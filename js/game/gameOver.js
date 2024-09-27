@@ -10,17 +10,21 @@ import { UI } from '../ui/elements.js';
  */
 export function gameOverHandler() {
   // ゲームオーバーフラグを設定
-  
+  state.gameOver = true;
 
   // アリーナ（ゲームフィールド）をクリア
-  
+  arena.forEach( row => row.fill(0) );
 
   // ゲームオーバー画面を表示
-  
+  UI.gameOverElement.style.display = "block";
 
   // 最終スコアを表示
+  updateGameOverScore();
   
-
   // 現在のアニメーションフレームをキャンセルしてゲームループを停止
-  
+  cancelAnimationFrame(state.animationFrameId);
+}
+
+export function updateGameOverScore() {
+  UI.gameOverScoreElement.innerText = "Score: " + state.score;
 }

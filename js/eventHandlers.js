@@ -5,6 +5,8 @@ import { arena } from './core/arena.js';
 import { player } from './core/player.js';
 import { update, playerDrop } from './game/gameLoop.js';
 import { initializePlayer, updateScore } from './game/initialization.js';
+import { updateGameOverScore } from './game/gameOver.js';
+import { drawMatrix } from './ui/draw.js';
 
 /**
  * イベントリスナーを設定します。
@@ -31,10 +33,16 @@ export function setupEventListeners() {
     state.gameOver = false;
     state.score = 0;
     // アリーナをクリア
+    drawMatrix(arena, { x: 0, y: 0 }, UI.context);
     // プレイヤーを初期化
+    initializePlayer();
     // スコアを更新
+    updateScore();
+    updateGameOverScore();
     // ゲームオーバー表示を非表示
+    UI.gameOverElement.style.display = "none";
     // ゲームを再開
+    update();
   });
 
   // キーボードイベントの処理
