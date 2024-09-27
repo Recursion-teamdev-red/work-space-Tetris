@@ -21,11 +21,9 @@ export function initializeGame() {
   initializePlayer();
   // ゲーム開始時のスコアを更新
   // スコアをリセット
-  // state.score = 0;
   updateScore();
 
   // レベルをリセット
-  // state.level = 1;
   updateLevel(state);
 }
 
@@ -46,9 +44,7 @@ export function initializePlayer() {
   player.pos.y = 0;
   player.pos.x = ((arena[0].length / 2) | 0) - ((player.matrix[0].length / 2) | 0);
   // 衝突判定を行い、衝突する場合はゲームオーバー処理を実行
-  if (collide(arena, player)) {
-    gameOverHandler();
-  }
+  if (collide(arena, player)) gameOverHandler();
 }
 
 /**
