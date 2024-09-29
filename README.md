@@ -5,6 +5,8 @@
 「Tetris」は、Recursionのチーム開発課題として制作されたWebアプリケーションです。このアプリは、クラシックなテトリスゲームを実装しており、プレイヤーは落下するブロックを回転させたり移動させたりしながら、行を揃えて消すことを目指します。ブロックが画面の上部まで積み上がるとゲームオーバーになります。
 
 ## デモ
+[デモアプリ](https://recursion-teamdev-red.github.io/work-space-Tetris/)
+
 [demo](https://github.com/user-attachments/assets/58f82d64-23aa-4b7c-8920-86225ef49d21)
 
 ## 機能
