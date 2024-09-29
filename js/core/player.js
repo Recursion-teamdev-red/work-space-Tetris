@@ -17,4 +17,5 @@ export const player = {
   pos: { x: 0, y: 0 }, // ピースの初期位置
   matrix: null, // 現在のピース（初期状態ではnull）
   next: null, // 次のピース（初期状態ではnull）
+  hold: null, // 保持しているピース（初期状態ではnull）
 };

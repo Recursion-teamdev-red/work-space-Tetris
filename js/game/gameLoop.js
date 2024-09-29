@@ -1,7 +1,7 @@
 import { state } from '../core/gameState.js';
 import { player } from '../core/player.js';
 import { arena } from '../core/arena.js';
-// import { DROP_INTERVAL } from '../config/constants.js';
+// import { resetHold } from '../hold.js';
 import { collide } from './collision.js';
 import { arenaSweep } from './scoring.js';
 import { draw } from '../ui/draw.js';
@@ -34,12 +34,12 @@ export function playerDrop() {
   player.pos.y++;
   // 衝突が発生した場合の処理
   if (collide(arena, player)) {
-    console.log('衝突発生！これ以上ピースを落下できません。');
     player.pos.y--; // 衝突が発生した場合は元の位置に戻す
     merge(arena, player);
     initializePlayer();
     arenaSweep(arena, state);
     updateScore();
+    // resetHold(); // ピース固定時にホールドリセット
   }
   state.dropCounter = 0;
 }

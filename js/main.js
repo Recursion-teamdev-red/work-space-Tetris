@@ -2,9 +2,11 @@ import { initializeGame } from './game/initialization.js';
 import { setupEventListeners } from './eventHandlers.js';
 import { update } from './game/gameLoop.js';
 
-// Initialize the game
-initializeGame();
-setupEventListeners();
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize the game
+  initializeGame();
+  setupEventListeners();
 
-// Start the game loop
-requestAnimationFrame(update);
+  // Start the game loop
+  requestAnimationFrame(update);
+});

@@ -44,11 +44,18 @@ canvas {
   flex-direction: row;
   align-items: center;
 }
-#next {
+/* #next {
   border: 1px solid #dbdbdb;
   background-color: #dbdbdb;
 }
 
+#hold {
+  border: 1px solid #dbdbdb;
+  background-color: #dbdbdb;
+} */
+#next2 {
+  border: 1px solid #dbdbdb;
+}
 .tetris-container {
   display: flex;
   justify-content: space-around;

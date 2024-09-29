@@ -9,6 +9,7 @@ import { updateGameOverScore } from './game/gameOver.js';
 import { drawMatrix } from './ui/draw.js';
 import { updateLevel } from './game/level.js';
 import { INITIAL_DROP_INTERVAL } from './config/constants.js';
+import { holdPiece } from './game/hold.js';
 
 /**
  * イベントリスナーを設定します。
@@ -70,6 +71,12 @@ export function setupEventListeners() {
       // 上矢印キー：回転
       else if (event.key === 'ArrowUp') {
         playerRotate(arena, player);
+      }
+      // スペースキー：ホールド
+      else if (event.key === ' ') {
+        // ホールド機能を使用
+        holdPiece();
+        event.preventDefault();
       }
     }
   });
