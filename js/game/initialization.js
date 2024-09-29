@@ -22,7 +22,7 @@ export function initializeGame() {
   // ゲーム開始時のスコアを更新
   // スコアをリセット
   updateScore();
-
+  player.hold = null;
   // レベルをリセット
   updateLevel(state);
 }
