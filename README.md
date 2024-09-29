@@ -7,7 +7,7 @@
 ## デモ
 [デモアプリ](https://recursion-teamdev-red.github.io/work-space-Tetris/)
 
-[demo](https://github.com/user-attachments/assets/58f82d64-23aa-4b7c-8920-86225ef49d21)
+[demo](https://github.com/user-attachments/assets/d3eda562-ff08-4b98-bcd8-aa41d9599c4c)
 
 ## 機能
 
